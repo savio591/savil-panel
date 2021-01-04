@@ -13,12 +13,12 @@
 
 
 ## Stacks🚀
-- Back end:
+- **Back end**:
   * Node.js
   * Typescript
   * Postgres SQL
 
-- Front end:
+- **Front end**:
     * Webpack
     * ReactJS
     * Javascript ES6
@@ -28,11 +28,13 @@
 https://github.com/savio591/savil-panel/projects/1
 
 
+## Escritas das funcionalidades
+O avaliador precisará entender códigos em typescript e es6, sempre comentar no que for drasticamente diferente do Javascript Puro
+
 ## Padrões de projeto:
+* Name of vars, functions and classes in **English** instead **Portuguese**;
 * Spaces: 4;
 * End of line sequence: LF;
 * Comments frequency: Low;
-* Use of ";" : Required;
-
-## Escritas das funcionalidades
-O avaliador precisará entender códigos em typescript e es6, sempre comentar no que for drasticamente diferente do Javascript Puro
+* Use of ";" ;
+* Double quote instead single quote;
