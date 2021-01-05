@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("products")
-class Products{
+class Product{
     @PrimaryGeneratedColumn("increment")
     id: string;
 
@@ -21,3 +21,5 @@ class Products{
     productAddedAt: Date;
 
 }
+
+export default Product
