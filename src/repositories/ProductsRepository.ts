@@ -9,9 +9,9 @@ import { EntityRepository, Repository } from "typeorm";
 
 @EntityRepository(Product) // Decora o model "Product" para o typeorm e chama a tabela do repositório dos produtos
 class ProductsRepository extends Repository<Product> {
-    public async findByDate(productAddedAt: Date): Promise<Product | null> {
+    public async findByName(productName: string): Promise<Product | null> {
         const findProduct = await this.findOne({
-            where: { productAddedAt },
+            where: { productName },
         })
 
         return findProduct || null

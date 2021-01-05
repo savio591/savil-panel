@@ -12,20 +12,22 @@ interface Request {
     productName: string;
     productDescription: string;
     productPrice: string;
-    productQt: string
+    productQt: string;
+    productAddedAt: Date;
 };
 
 
 
 class CreateProductService {
-    public async execute({ productName, productDescription, productPrice, productQt }: Request): Promise<Product> {
+    public async execute({ productName, productDescription, productPrice, productQt, productAddedAt }: Request): Promise<Product> {
         const productsRepository = getCustomRepository(ProductsRepository);
 
         const product = productsRepository.create({
             productName,
             productDescription,
             productPrice,
-            productQt
+            productQt,
+            productAddedAt
         });
 
         await productsRepository.save(product); // O typeorm só envia para o repo banco de dados com o .save

@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity("users")
+@Entity('users')
 class Products{
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
@@ -14,10 +14,10 @@ class Products{
     @Column()
     password: string;
 
-    @Column("timestamp with time zone")
+    @Column('timestamp with time zone')
     createdAt: Date;
 
-    @Column("timestamp with time zone")
+    @Column('timestamp with time zone')
     updatedAt: Date;
 
 }

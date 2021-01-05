@@ -11,7 +11,8 @@ export default class CreateProductsRepository1609809542851 implements MigrationI
                         name: 'id',
                         type: 'varchar',
                         isPrimary: true,
-                        generationStrategy: 'increment'
+                        generationStrategy: 'increment',
+                        default: 'uuid_generate_v4()',
                     },
                     {
                         name: 'productAddedAt',
@@ -26,7 +27,7 @@ export default class CreateProductsRepository1609809542851 implements MigrationI
                     {
                         name: 'productDescription',
                         type: 'varchar',
-                        isNullable: false
+                        isNullable: true
                     },
                     {
                         name: 'productPrice',
@@ -36,7 +37,7 @@ export default class CreateProductsRepository1609809542851 implements MigrationI
                     {
                         name: 'productQt',
                         type: 'varchar',
-                        isNullable: false
+                        isNullable: true
                     }
 
                 ]
