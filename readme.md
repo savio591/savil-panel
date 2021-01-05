@@ -1,5 +1,36 @@
 # Savil Panel🧑🏽
 
+## Requisitos
+* Node.js LTS ou recente, disponível em: https://nodejs.org/en/download
+* Yarn (recomendado, por uma melhor experiência com dependências), você pode instalar usando nodejs:
+  
+  `npm install -g yarn`
+
+  ou via package manager, caso for linux ubuntu/mint, usando:
+
+  `apt install yarn`
+
+  ou pelo windows powershell com o chocolatey instalado usando:
+
+  `choco install yarn`
+
+ ----
+
+## Rodando o backend
+1. Primeiro, instalar as dependências do servidor executando yarn ou npm no seu terminal prefefido:
+   
+    `yarn` ou `npm install`
+
+2. Executar o backend usando:
+   
+   `yarn dev:server` ou `npm run dev:server`
+
+<br>
+
+--------
+
+<br>
+
 ## Sobre a avaliação 👁‍🗨
 
 "O projeto consiste em criar um painel que efetue o login e tenha acesso ao CRUD de categorias e produtos com upload de fotos. Se tiver nível de acesso melhor ainda."
@@ -11,12 +42,13 @@
 * Padrões de projeto;
 * Escritas das funcionalidades;
 
-
 ## Stacks🚀
 - **Back end**:
   * Node.js
   * Typescript
-  * Postgres SQL
+  * TypeORM
+  * Express
+  * PostgreSQL
 
 - **Front end**:
     * Webpack
@@ -24,7 +56,7 @@
     * Javascript ES6
     * Babel
 
-## Kambam roadmap 🚘
+## Kanban(Progresso da atividade) 🚘
 https://github.com/savio591/savil-panel/projects/1
 
 
