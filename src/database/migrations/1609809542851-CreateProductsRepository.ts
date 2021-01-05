@@ -1,41 +1,41 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export default class CreateProductsRepository1609809542851 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "products",
+                name: 'products',
                 columns: [
                     {
-                        name: "id",
-                        type: "varchar",
+                        name: 'id',
+                        type: 'varchar',
                         isPrimary: true,
-                        generationStrategy: "increment"
+                        generationStrategy: 'increment'
                     },
                     {
-                        name: "productAddedAt",
-                        type: "varchar",
-                        isNullable: false
-                    }
-                    {
-                        name: "productName",
-                        type: "varchar",
+                        name: 'productAddedAt',
+                        type: 'varchar',
                         isNullable: false
                     },
                     {
-                        name: "productDescription",
-                        type: "varchar",
+                        name: 'productName',
+                        type: 'varchar',
                         isNullable: false
                     },
                     {
-                        name: "productPrice",
-                        type: "varchar",
+                        name: 'productDescription',
+                        type: 'varchar',
                         isNullable: false
                     },
                     {
-                        name: "productQt",
-                        type: "varchar",
+                        name: 'productPrice',
+                        type: 'varchar',
+                        isNullable: false
+                    },
+                    {
+                        name: 'productQt',
+                        type: 'varchar',
                         isNullable: false
                     }
 
@@ -44,7 +44,7 @@ export default class CreateProductsRepository1609809542851 implements MigrationI
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("products");
+        await queryRunner.dropTable('products');
     }
 
 }

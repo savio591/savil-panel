@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("products")
+@Entity('products')
 class Product{
-    @PrimaryGeneratedColumn("increment")
+    @PrimaryGeneratedColumn('increment')
     id: string;
 
     @Column()
@@ -17,9 +17,9 @@ class Product{
     @Column()
     productQt: string;
 
-    @Column("timestamp with time zone")
+    @Column('timestamp with time zone')
     productAddedAt: Date;
 
 }
 
-export default Product
+export default Product;
