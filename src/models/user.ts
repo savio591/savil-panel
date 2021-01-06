@@ -1,7 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity('users')
-class Products{
+class User{
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -14,10 +14,12 @@ class Products{
     @Column()
     password: string;
 
-    @Column('timestamp with time zone')
-    createdAt: Date;
-
-    @Column('timestamp with time zone')
-    updatedAt: Date;
+    @CreateDateColumn()
+    created_at: Date;
+  
+    @UpdateDateColumn()
+    updated_at: Date;
 
 }
+
+export default User

@@ -9,6 +9,9 @@ class Product{
     productName: string;
 
     @Column()
+    productImage: string;
+
+    @Column()
     productDescription: string;
 
     @Column()

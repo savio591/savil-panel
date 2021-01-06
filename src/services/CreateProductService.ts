@@ -22,6 +22,14 @@ class CreateProductService {
     public async execute({ productName, productDescription, productPrice, productQt, productAddedAt }: Request): Promise<Product> {
         const productsRepository = getCustomRepository(ProductsRepository);
 
+        // Verificação se o produto já existe no banco de dados.
+        const findProductInSameName = await productsRepository.findByName(
+            productName);
+        if (findProductInSameName) {
+            throw Error('Este produto já foi cadastrado!');
+        }
+
+        // Prepara envio do produto para o banco de dados.
         const product = productsRepository.create({
             productName,
             productDescription,

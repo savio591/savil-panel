@@ -25,6 +25,11 @@ export default class CreateProductsRepository1609809542851 implements MigrationI
                         isNullable: false
                     },
                     {
+                        name: 'category',
+                        type: 'varchar',
+                        isNullable: false
+                    },
+                    {
                         name: 'productDescription',
                         type: 'varchar',
                         isNullable: true
@@ -38,6 +43,11 @@ export default class CreateProductsRepository1609809542851 implements MigrationI
                         name: 'productQt',
                         type: 'varchar',
                         isNullable: true
+                    },
+                    {
+                        name: 'productImage',
+                        type: 'varchar',
+                        isNullable: true,
                     }
 
                 ]

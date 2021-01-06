@@ -8,10 +8,16 @@ import { Router } from "express";
 import { getCustomRepository } from "typeorm";
 import { parseISO } from 'date-fns';
 
+import multer from 'multer';
+import uploadConfig from '../config/upload';
+
 import ProductsRepository from "../repositories/ProductsRepository";
 import CreateProductService from "../services/CreateProductService";
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+import UpdateProductsImagesService from '../services/UpdateProductsImagesService'
 
 const productsRouter = Router(); // Cria uma função para o protocolo http dos produtos.
+const upload = multer(uploadConfig);
 
 
 // Listagem dos produtos
@@ -22,6 +28,7 @@ productsRouter.get("/", async (request, response) => { // GET http://.../product
     return response.json(products) // retorna um JSON dos produtos para o frontend.
 });
 
+productsRouter.use(ensureAuthenticated); // Middleware de autenticação
 // Criação de produtos 
 productsRouter.post("/", async (request, response) => { // POST http://.../products
     try { // uso do try/catch para enviar mensagens de erro do backend log para o forntend.
@@ -52,5 +59,25 @@ productsRouter.post("/", async (request, response) => { // POST http://.../produ
         return response.status(400).json({ error: err.message }); // retorna um erro do log para o frontend
     }
 });
+
+// Adiciona imagens no produto
+productsRouter.patch(
+    '/images',
+    ensureAuthenticated,
+    upload.single('image'),
+    async (request, response) => {
+        try {
+            const updateProductsImagesService = new UpdateProductsImagesService();
+
+            await updateProductsImagesService.execute({
+                user_id: request.user.id,
+                product_id: request.product.id,
+                productFilename: request.file.filename,
+            });
+        } catch (err) {
+            return response.status(400).json({ error: err.message });
+        }
+    },
+);
 
 export default productsRouter
