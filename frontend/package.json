@@ -6,7 +6,8 @@
   "author": "savio591",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn webpack serve --mode development"
+    "dev": "yarn webpack serve --mode development",
+    "build": "webpack --mode development"
   },
   "dependencies": {
     "axios": "^0.21.0",

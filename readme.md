@@ -1,7 +1,7 @@
 # Savil Panel🧑🏽
 
 ## Informações rápidas
-Instruções do [backend](backend/readme.md) e [frontent](backend/readme.md) acessíveis ao clicar, disponíveis dentro das pastas.
+Instruções do [backend](backend/readme.md) e [frontend](frontend/readme.md) acessíveis ao clicar, disponíveis dentro das pastas.
 
 ## Sobre a avaliação 👁‍🗨
 
