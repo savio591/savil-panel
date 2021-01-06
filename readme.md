@@ -25,6 +25,13 @@
    
    `yarn dev:server` ou `npm run dev:server`
 
+3. As tabelas e colunas do banco serão automaticamente criadas, basta inicializar o banco de dados PostgreSQL hospedado na nuvem com:
+   
+    `yarn database:run`
+
+4. Caso o banco de dados já esteja inicializado ou precisa reverter as tabelas, executar 2x:
+5. `yarn database:revert`
+
 <br>
 
 --------
@@ -69,4 +76,4 @@ O avaliador precisará entender códigos em typescript e es6, sempre comentar no
 * End of line sequence: LF;
 * Comments frequency: Low;
 * Use of ";" ;
-* Double quote instead single quote;
+* Single quote ' ;

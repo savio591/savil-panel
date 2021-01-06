@@ -9,7 +9,9 @@
   "scripts": {
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "database:run": "ts-node-dev ./node_modules/typeorm/cli.js migration:run",
+    "database:revert": "ts-node-dev ./node_modules/typeorm/cli.js migration:revert"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
