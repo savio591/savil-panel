@@ -25,7 +25,7 @@ export default class CreateProductsRepository1609809542851 implements MigrationI
                         isNullable: false
                     },
                     {
-                        name: 'category',
+                        name: 'productCategory',
                         type: 'varchar',
                         isNullable: false
                     },

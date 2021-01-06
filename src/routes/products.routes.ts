@@ -37,7 +37,8 @@ productsRouter.post("/", async (request, response) => { // POST http://.../produ
             productDescription,
             productPrice,
             productQt,
-            productAddedAt
+            productAddedAt,
+            productCategory
         } = request.body;
 
         const parsedDate = parseISO(productAddedAt);
@@ -50,6 +51,7 @@ productsRouter.post("/", async (request, response) => { // POST http://.../produ
                 productDescription,
                 productPrice,
                 productQt,
+                productCategory,
                 productAddedAt: parsedDate
             });
 
@@ -62,18 +64,21 @@ productsRouter.post("/", async (request, response) => { // POST http://.../produ
 
 // Adiciona imagens no produto
 productsRouter.patch(
-    '/images',
+    '/:product_id/images',
     ensureAuthenticated,
     upload.single('image'),
     async (request, response) => {
         try {
-            const updateProductsImagesService = new UpdateProductsImagesService();
+            const { product_id } = request.params;
 
-            await updateProductsImagesService.execute({
+            const updateProductsImagesService = new UpdateProductsImagesService();
+            const product = await updateProductsImagesService.execute({
                 user_id: request.user.id,
-                product_id: request.product.id,
+                product_id,
                 productFilename: request.file.filename,
-            });
+            })
+        
+              return response.json(product);
         } catch (err) {
             return response.status(400).json({ error: err.message });
         }

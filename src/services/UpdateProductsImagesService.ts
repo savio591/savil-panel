@@ -13,7 +13,7 @@ interface Request { // Tipagem da imagem enviada pelo frontend
 };
 
 class UpdateProductsImagesService {
-  public async execute({ user_id, product_id, productFilename }: Request): Promise<User> {
+  public async execute({ user_id, product_id, productFilename }: Request): Promise<Products> {
     const usersRepository = getRepository(User);
     const productsRepository = getRepository(Products);
 
@@ -38,11 +38,10 @@ class UpdateProductsImagesService {
     }
 
     product.productImage = productFilename;
-    console.log(`${user_id} adicionou uma foto no produto ${product_id}`)
 
-    await usersRepository.save(user);
+    await productsRepository.save(product);
 
-    return user;
+    return product;
   }
 }
 

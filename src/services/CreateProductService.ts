@@ -11,6 +11,7 @@ import ProductsRepository from "../repositories/ProductsRepository";
 interface Request {
     productName: string;
     productDescription: string;
+    productCategory: string;
     productPrice: string;
     productQt: string;
     productAddedAt: Date;
@@ -19,7 +20,7 @@ interface Request {
 
 
 class CreateProductService {
-    public async execute({ productName, productDescription, productPrice, productQt, productAddedAt }: Request): Promise<Product> {
+    public async execute({ productName, productDescription, productCategory, productPrice, productQt, productAddedAt }: Request): Promise<Product> {
         const productsRepository = getCustomRepository(ProductsRepository);
 
         // Verificação se o produto já existe no banco de dados.
@@ -33,6 +34,7 @@ class CreateProductService {
         const product = productsRepository.create({
             productName,
             productDescription,
+            productCategory,
             productPrice,
             productQt,
             productAddedAt

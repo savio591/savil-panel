@@ -15,6 +15,9 @@ class Product{
     productDescription: string;
 
     @Column()
+    productCategory: string;
+
+    @Column()
     productPrice: string;
 
     @Column()
