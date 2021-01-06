@@ -14,7 +14,9 @@ import uploadConfig from '../config/upload';
 import ProductsRepository from "../repositories/ProductsRepository";
 import CreateProductService from "../services/CreateProductService";
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
-import UpdateProductsImagesService from '../services/UpdateProductsImagesService'
+import UpdateProductsService from '../services/UpdateProductsService';
+import UpdateProductsImagesService from '../services/UpdateProductsImagesService';
+import DeleteProductsService from '../services/DeleteProductsService';
 
 const productsRouter = Router(); // Cria uma função para o protocolo http dos produtos.
 const upload = multer(uploadConfig);
@@ -29,6 +31,7 @@ productsRouter.get("/", async (request, response) => { // GET http://.../product
 });
 
 productsRouter.use(ensureAuthenticated); // Middleware de autenticação
+
 // Criação de produtos 
 productsRouter.post("/", async (request, response) => { // POST http://.../products
     try { // uso do try/catch para enviar mensagens de erro do backend log para o forntend.
@@ -62,6 +65,37 @@ productsRouter.post("/", async (request, response) => { // POST http://.../produ
     }
 });
 
+// Edita o produto selecionado
+productsRouter.put(
+    '/:product_id/',
+    ensureAuthenticated,
+    async (request, response) => {
+        try {
+            const { product_id } = request.params;
+            const { productName,
+                productDescription,
+                productPrice,
+                productQt,
+                productCategory } = request.body
+
+            const updateProductsService = new UpdateProductsService();
+            const product = await updateProductsService.execute({
+                user_id: request.user.id,
+                product_id,
+                productName,
+                productDescription,
+                productPrice,
+                productQt,
+                productCategory
+            })
+
+            return response.json(product);
+        } catch (err) {
+            return response.status(400).json({ error: err.message });
+        }
+    },
+);
+
 // Adiciona imagens no produto
 productsRouter.patch(
     '/:product_id/images',
@@ -77,12 +111,32 @@ productsRouter.patch(
                 product_id,
                 productFilename: request.file.filename,
             })
-        
-              return response.json(product);
+
+            return response.json(product);
         } catch (err) {
             return response.status(400).json({ error: err.message });
         }
-    },
-);
+    });
+
+// Remove o produto selecionado
+productsRouter.delete(
+        '/:product_id',
+        ensureAuthenticated,
+        async (request, response) => {
+            try {
+                const { product_id } = request.params;
+
+                const deleteProductsService = new DeleteProductsService();
+                await deleteProductsService.execute({
+                    user_id: request.user.id,
+                    product_id
+                })
+
+                return response.status(200).json({ message: "O produto foi deletado com sucesso!"})
+            } catch (err) {
+                return response.status(400).json({ error: err.message });
+            }
+        },
+    );
 
 export default productsRouter
