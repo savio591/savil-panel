@@ -13,7 +13,7 @@ module.exports = {
 
     devServer: {
       contentBase: path.resolve(__dirname, 'docs'),
-      port: 80
+      port: 9000
     },
     
     module: {
