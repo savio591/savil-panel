@@ -6,15 +6,17 @@ import Footer from "./components/footer";
 import "./styles/main.css"
 
 const App: React.FC = () => {
+  const username = "admin" // Até os serviços de login ainda não estiverem criados
 
   return (
     <>
       <Header
         name="Savil Panel"
-        adminButtonText="É administrador? Faça login <span>Aqui</span>"
+        notLoggedText="É administrador? Faça login Aqui"
+        loggedText= {`Bem vindo! ${username}`}
       />
       <ProductsList productTitle="Lista de produtos"/>
-      <Footer copyrightText="2021 Savio Castelo" />
+      <Footer copyrightText="© 2021 -  Savio Henrique dos Santos Castelo." />
     </>
   )
 }

@@ -3,15 +3,41 @@ import '../styles/header.css';
 
 // Cabeçalho do site
 
-// Tipagem de variáveis 
+// Tipagem dos props do cabeçalho
 interface HeaderProps {
     name: string;
-    adminButtonText ?: string;
+    username ?: string;
+    notLoggedText: string;
+    loggedText: string;
+}
+
+// Tipagem das mensagens de login do cabeçalho
+interface MessageLoginTypes {
+    isLogged: boolean,
+    notLoggedText: string,
+    loggedText: string
+}
+
+// Função que entrega a mensagem de login adequada
+function MessageLoginMgr ({ isLogged, loggedText, notLoggedText }: MessageLoginTypes) {
+    if (isLogged) {
+        loginText = loggedText
+        return loginText
+    }
+    else {
+        var loginText = notLoggedText
+        return loginText
+    }
 }
 
 function Header(props: HeaderProps) {
     const name = props.name;
-    const adminButtonText = props.adminButtonText;
+
+    const loginText = MessageLoginMgr({
+        isLogged: true,
+        loggedText: props.loggedText,
+        notLoggedText: props.notLoggedText
+    });
 
     return (
         <>
@@ -20,7 +46,7 @@ function Header(props: HeaderProps) {
             </header>
             <nav className="navbar">
                 <div className="admin_button">
-                    <h3>{adminButtonText}</h3>
+                    <h3>{loginText}</h3>
                 </div>
             </nav>
         </>
