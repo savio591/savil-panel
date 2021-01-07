@@ -1,7 +1,11 @@
 import React from "react";
 import '../styles/footer.css';
 
-function Footer(props: { copyrightText: string }) {
+interface FooterProps {
+    copyrightText: string
+}
+// Rodapé do site
+function Footer(props: FooterProps) {
     const copyrightText = props.copyrightText;
 
     return (
