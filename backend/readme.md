@@ -68,7 +68,7 @@
             "productImage": "01abd0863cc79662c8dd-caneca_babyoda.jpg",
             "productDescription": "Para suportar seu chefe em plena segunda-feira: de muito café você precisa!",
             "productCategory": "Cozinha",
-            "productPrice": "R$26,40",
+	    "productPrice": "R$26,40",
             "productQt": "192 unidades",
             "productAddedAt": "2021-01-06T13:23:01.869Z"
         }
@@ -78,4 +78,21 @@
 
 <b>2. Criação de produtos:</b>
 
-* 
+* O CRUD do produto só funcionará se o usuário estiver autenticado. Portanto, primeiro você precisa fazer login pela api com um JSON com "username" e "password", como por exemplo:
+
+```json
+{
+  "username": "nomedousuario",
+  "password": "senhadousuario"
+}
+```
+
+para o backend:
+
+```html
+  GET http://localhost:3333/session
+```
+
+assim, o backend vai retornar um json com dados do usuário e um token de autenticação do tipo bearer.
+
+
