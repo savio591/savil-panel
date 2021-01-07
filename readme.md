@@ -5,7 +5,7 @@ Instruções do [backend](backend/readme.md) e [frontend](frontend/readme.md) ac
 
 ## Sobre a avaliação 👁‍🗨
 
-"O projeto consiste em criar um [painel](https://savilexperiments.com.br/savil-panel) que efetue o [login](https://savilexperiments.com.br/savil-panel/login) e tenha acesso ao CRUD de categorias e produtos com upload de fotos. Se tiver nível de acesso melhor ainda."
+"O projeto consiste em criar um [painel](https://savilexperiments.com.br/savil-panel/frontend/docs) que efetue o [login](https://savilexperiments.com.br/savil-panel/login) e tenha acesso ao CRUD de categorias e produtos com upload de fotos. Se tiver nível de acesso melhor ainda."
 
 ## O que será analisado? 👨‍🎨
 
