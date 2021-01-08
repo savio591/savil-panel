@@ -6,9 +6,10 @@ import '../styles/header.css';
 // Tipagem dos props do cabeçalho
 interface HeaderProps {
     name: string;
-    username ?: string;
+    username?: string;
     notLoggedText: string;
     loggedText: string;
+    url ?: string;
 }
 
 // Tipagem das mensagens de login do cabeçalho
@@ -19,7 +20,7 @@ interface MessageLoginTypes {
 }
 
 // Função que entrega a mensagem de login adequada
-function MessageLoginMgr ({ isLogged, loggedText, notLoggedText }: MessageLoginTypes) {
+function MessageLoginMgr({ isLogged, loggedText, notLoggedText }: MessageLoginTypes) {
     if (isLogged) {
         loginText = loggedText
         return loginText
@@ -32,9 +33,10 @@ function MessageLoginMgr ({ isLogged, loggedText, notLoggedText }: MessageLoginT
 
 function Header(props: HeaderProps) {
     const name = props.name;
+    const url = 
 
     const loginText = MessageLoginMgr({
-        isLogged: true,
+        isLogged: false,
         loggedText: props.loggedText,
         notLoggedText: props.notLoggedText
     });
@@ -43,6 +45,14 @@ function Header(props: HeaderProps) {
         <>
             <header>
                 <h1 className="header_logo">{name}</h1>
+                <nav className="header_navbar">
+                    <div className="admin_button">
+                        <a hidden={true} href="./login">
+                            <h3>{loginText}</h3>
+                        </a>
+
+                    </div>
+                </nav>
             </header>
             <nav className="navbar">
                 <div className="admin_button">
