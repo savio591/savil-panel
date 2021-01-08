@@ -1,9 +1,9 @@
 import React from "react";
 
+import "./styles/main.css"
 import Header from "./components/header";
 import ProductsList from "./components/products";
 import Footer from "./components/footer";
-import "./styles/main.css"
 
 const App: React.FC = () => {
   const username = "admin" // Até os serviços de login ainda não estiverem criados

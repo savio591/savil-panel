@@ -1,0 +1,86 @@
+.productsList h1 {
+    font-family: Buenard;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 100%;
+    /* identical to box height, or 24px */
+    text-align: center;
+    letter-spacing: -0.03em;
+    text-decoration-line: underline;
+    color: #DFDFDF;
+    padding: 8px;
+}
+
+.containerProducts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 2vw;
+    flex-wrap: wrap;
+}
+
+.category {
+    position: absolute;
+    height: 32px;
+    padding: 0px 12px;
+    background: #5C5C5C;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category h2 {
+    font-family: Buenard;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 100%;
+    /* identical to box height, or 18px */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #EDEDED;
+}
+
+.productsList img {
+    height: 343px;
+    max-width: 343px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.details {
+    width: 343px;
+    height: 93px;
+    background: #DFDFDF;
+    display: flex;
+    border-radius: 0 0 16px 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Buenard;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 100%;
+    /* identical to box height, or 24px */
+    letter-spacing: -0.03em;
+    color: #474747;
+}
+
+.details .productPrice h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+
+}

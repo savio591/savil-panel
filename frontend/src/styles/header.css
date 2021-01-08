@@ -3,7 +3,7 @@ header {
     height: 72px;
     background: #333333;
     box-shadow: 0px -1px 11px rgba(0, 0, 0, 0.75);
-    display: flex !important;
+    display: flex;
     justify-content: center;
     align-items: center;
 }

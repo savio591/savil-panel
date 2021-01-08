@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import api from "../services/api"
-import '../styles/footer.css';
+import '../styles/productsList.css';
 
 interface ProductsProps {
     productTitle: string
@@ -31,8 +31,6 @@ function ProductsList(props: ProductsProps) {
         })
     }, [])
 
-    console.log(products.map(product => {product.productName}))
-
     return (
         <>
             <section className="productsList">
@@ -43,7 +41,7 @@ function ProductsList(props: ProductsProps) {
                             <div className="category">
                                 <h2>{product.productCategory}</h2>
                             </div>
-                            <img src={`files/${product.productImage}`}></img>
+                            <img src={`http://localhost:3333/files/${product.productImage}`}></img>
                             <div className="details">
                                 <h3 className="productName">{product.productName}</h3>
                                 <h3 className="productPrice">{product.productPrice}</h3>
