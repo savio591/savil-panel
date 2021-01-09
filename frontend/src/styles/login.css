@@ -1,0 +1,79 @@
+.loginContainer {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    place-content: center;
+}
+
+.loginContainer form {
+    background: #393939;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    place-content: center;
+    max-width: 512px;
+    width: 50vw;
+    height: 50vh;
+    max-height: fit-content;
+}
+
+.loginContainer form h2 {
+    font-family: Buenard;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #D6D6D6;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    padding-bottom: 64px;
+}
+
+.loginContainer form input {
+    margin-bottom: 16px;
+    padding: 8px;
+    background: #C4C4C4;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-family: Buenard;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.03em;
+    color: #333333;
+}
+
+.loginContainer form input:placeholder {
+    color: #6A6A6A;
+}
+
+.loginContainer form button {
+    padding: 12px;
+    border-radius: 24px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-family: Buenard;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #373737;
+    background: #D0D0D0;
+}
+
+.loginContainer form button:hover {
+    color: #303030;
+    background: #C5C5C5;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+}
