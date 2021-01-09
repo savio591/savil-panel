@@ -4,7 +4,6 @@ import { IsLoginPage, MessageLoginMgr } from "../services/loginServices";
 
 import '../styles/header.css';
 
-// Cabeçalho do site
 
 // Tipagem dos props do cabeçalho
 interface HeaderProps {
@@ -15,11 +14,11 @@ interface HeaderProps {
     url?: string;
 }
 
-
+// Cabeçalho do site
 function Header(props: HeaderProps) {
     const name = props.name;
 
-
+    // JSON de parâmetros de login
     const loginText = MessageLoginMgr({
         isLogged: false,
         loggedText: props.loggedText,
@@ -35,13 +34,14 @@ function Header(props: HeaderProps) {
                         <a hidden={IsLoginPage()} href="./login">
                             <h3>{loginText}</h3>
                         </a>
-
                     </div>
                 </nav>
             </header>
             <nav className="navbar">
                 <div className="admin_button">
-                    <h3>{loginText}</h3>
+                    <a hidden={IsLoginPage()} href="./login">
+                        <h3>{loginText}</h3>
+                    </a>
                 </div>
             </nav>
         </>

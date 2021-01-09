@@ -7,7 +7,23 @@ html, body {
     height: 100%;
 }
 
-#app {
+#app, #login {
     display: flex;
     flex-direction: column;
 }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .productsList {
+    flex: 1 0 auto;
+  }
+
+  .loginContainer {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }

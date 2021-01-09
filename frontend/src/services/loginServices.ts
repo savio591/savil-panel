@@ -19,6 +19,7 @@ export function MessageLoginMgr({ isLogged, loggedText, notLoggedText }: Message
     }
 }
 
+// Função que retorna um boolean se é a página de login
 export function IsLoginPage() {
     const url = document.URL
 
