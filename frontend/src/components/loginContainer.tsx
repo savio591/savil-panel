@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useContext } from 'react';
+import React, { useRef, useCallback } from 'react';
 
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -8,7 +8,7 @@ import '../styles/login.css';
 import Input from './Input';
 
 import getValidationErrors from '../utils/getValidationErrors';
-import { AuthContext } from '../services/authContextService';
+import { useAuth } from '../services/authContextService';
 
 interface SignInFormData {
   username: string;
@@ -16,8 +16,7 @@ interface SignInFormData {
 }
 
 function LoginContainer() {
-  const { signIn } = useContext(AuthContext);
-
+  const { signIn } = useAuth();
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: SignInFormData) => {
@@ -25,15 +24,14 @@ function LoginContainer() {
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
-        username: Yup.string().required('O usuário é joohncafe'),
-        password: Yup.string().required('A senha é thisJobIsMine'),
+        username: Yup.string().required('O usuário é admin'),
+        password: Yup.string().required('A senha é savio05may123'),
       });
 
       await schema.validate(data, {
         abortEarly: false,
       });
 
-      console.log(data);
       await signIn({
         username: data.username,
         password: data.password,
@@ -45,7 +43,7 @@ function LoginContainer() {
         formRef.current?.setErrors(errors);
       }
     }
-  }, []);
+  }, [signIn]);
 
   return (
     <>

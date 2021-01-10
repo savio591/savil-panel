@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { IsLoginPage, MessageLoginMgr } from "../services/loginServices";
+import { useAuth } from "../services/authContextService"
 
 import '../styles/header.css';
 
@@ -9,20 +10,18 @@ import '../styles/header.css';
 interface HeaderProps {
     name: string;
     username?: string;
-    notLoggedText: string;
-    loggedText: string;
     url?: string;
 }
 
 // Cabeçalho do site
 function Header(props: HeaderProps) {
     const name = props.name;
-
+    const {name: username} = useAuth()
     // JSON de parâmetros de login
     const loginText = MessageLoginMgr({
         isLogged: true,
-        loggedText: props.loggedText,
-        notLoggedText: props.notLoggedText
+        notLoggedText: "É administrador? Faça login Aqui",
+        loggedText: `Bem vindo! ${username}`
     })
 
     return (
