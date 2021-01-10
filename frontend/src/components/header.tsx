@@ -20,7 +20,7 @@ function Header(props: HeaderProps) {
 
     // JSON de parâmetros de login
     const loginText = MessageLoginMgr({
-        isLogged: false,
+        isLogged: true,
         loggedText: props.loggedText,
         notLoggedText: props.notLoggedText
     })

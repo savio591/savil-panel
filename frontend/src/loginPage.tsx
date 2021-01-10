@@ -3,8 +3,9 @@ import Header from './components/header'
 import LoginContainer from './components/loginContainer'
 import Footer from './components/footer'
 
+
 const LoginPage: React.FC = () => {
-    const username = "Savil"
+    const username = "John Cafe"
     return (
         <>
             <Header
@@ -14,7 +15,6 @@ const LoginPage: React.FC = () => {
             />
             
             <LoginContainer />
-
             <Footer copyrightText="© 2021 -  Savio Henrique dos Santos Castelo." />
         </>
     )

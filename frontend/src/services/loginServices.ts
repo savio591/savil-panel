@@ -23,7 +23,7 @@ export function MessageLoginMgr({ isLogged, loggedText, notLoggedText }: Message
 export function IsLoginPage() {
     const url = document.URL
 
-    if (url == "http://localhost:9000/login/") {
+    if (url.endsWith("/login/")) {
         const isLoginPage: boolean = true
         return isLoginPage
     }
