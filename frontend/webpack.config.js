@@ -15,6 +15,8 @@ module.exports = {
       contentBase: path.resolve(__dirname, 'docs'),
       port: 9000
     },
+
+    entry: ['@babel/polyfill', './src/index.tsx'],
     
     module: {
       rules: [
