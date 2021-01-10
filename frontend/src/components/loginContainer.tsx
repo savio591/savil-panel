@@ -1,15 +1,11 @@
-import React, {
-  useRef,
-  useCallback,
-  useContext,
-} from 'react';
+import React, { useRef, useCallback, useContext } from 'react';
 
 import { FormHandles } from '@unform/core';
-import { Form } from '@unForm/web';
-import * as Yup from 'yup'
+import { Form } from '@unform/web';
+import * as Yup from 'yup';
 
-import "../styles/login.css";
-import Input from './Input'
+import '../styles/login.css';
+import Input from './Input';
 
 import getValidationErrors from '../utils/getValidationErrors';
 import { AuthContext } from '../services/authContextService';
@@ -21,7 +17,6 @@ interface SignInFormData {
 
 function LoginContainer() {
   const { signIn } = useContext(AuthContext);
-
 
   const formRef = useRef<FormHandles>(null);
 
@@ -38,12 +33,11 @@ function LoginContainer() {
         abortEarly: false,
       });
 
-      console.log(data)
+      console.log(data);
       await signIn({
         username: data.username,
         password: data.password,
       });
-
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
@@ -65,7 +59,8 @@ function LoginContainer() {
         </Form>
       </div>
     </>
-  )
+  );
 }
 
-export default LoginContainer
+export default LoginContainer;
+
