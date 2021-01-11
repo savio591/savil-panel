@@ -9,6 +9,7 @@ import Input from './Input';
 
 import getValidationErrors from '../utils/getValidationErrors';
 import { useAuth } from '../services/authContextService';
+import { useToast } from '../services/toastServices';
 
 interface SignInFormData {
   username: string;
@@ -17,6 +18,9 @@ interface SignInFormData {
 
 function LoginContainer() {
   const { signIn } = useAuth();
+
+  const { addToast } = useToast();
+
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: SignInFormData) => {
@@ -41,9 +45,14 @@ function LoginContainer() {
         const errors = getValidationErrors(err);
 
         formRef.current?.setErrors(errors);
+        addToast({
+          type: 'error',
+          title: 'Erro na autenticação',
+          description: 'Ocorreu um erro ao fazer login, cheque as credenciais.',
+        });
       }
     }
-  }, [signIn]);
+  }, [signIn, addToast]);
 
   return (
     <>

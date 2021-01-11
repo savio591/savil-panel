@@ -8,14 +8,13 @@ import { AuthProvider } from "./services/authContextService";
 
 
 const App: React.FC = () => (
-    <>
-      <AuthProvider>
-        <Header
-          name="Savil Panel"/>
-        <ProductsList productTitle="Lista de produtos" />
-        <Footer copyrightText="© 2021 -  Savio Henrique dos Santos Castelo." />
-      </AuthProvider>
-    </>
-  )
+  <>
+    <AuthProvider>
+      <Header titleName="Savil Panel" />
+      <ProductsList productTitle="Lista de produtos" />
+      <Footer copyrightText="© 2021 -  Savio Henrique dos Santos Castelo." />
+    </AuthProvider>
+  </>
+)
 
 export default App;

@@ -7,20 +7,25 @@ interface SignInCredentials {
   password: string;
 }
 
-interface AuthContextData {
-  name: object;
-  signIn(credentials: SignInCredentials): Promise<void>;
+interface UserObject {
+  name: string;
 }
 
-interface AuthState {
+interface DataObject {
+  user: UserObject;
   token: string;
-  user: object;
+}
+
+interface AuthContextData {
+  data : DataObject;
+  signIn(credentials: SignInCredentials): Promise<void>;
+  signOut: object;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
-    const [data, setData] = useState<AuthState>(() => {
+  const [data, setData] = useState<DataObject>(() => {
     const token = localStorage.getItem('@SavilPanel:token');
     const user = localStorage.getItem('@SavilPanel:user');
 
@@ -28,7 +33,7 @@ const AuthProvider: React.FC = ({ children }) => {
       return { token, user: JSON.parse(user) };
     }
 
-    return {} as AuthState;
+    return {} as DataObject;
   });
 
   const signIn = useCallback(async ({ username, password }) => {
@@ -42,12 +47,19 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@SavilPanel:token', token);
     localStorage.setItem('@SavilPanel:user', JSON.stringify(user));
 
-    setData({ token, user });    
+    setData({ token, user });
 
   }, []);
 
+  const signOut = useCallback(() => {
+    localStorage.removeItem('@SavilPanel:token');
+    localStorage.removeItem('@SavilPanel:user');
+
+    setData({} as DataObject);
+  }, [])
+
   return (
-    <AuthContext.Provider value={{name: data.user.name , signIn }}>
+    <AuthContext.Provider value={{ data, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,14 +1,28 @@
+import { useAuth } from "./authContextService";
 
+interface UseAuth {
+    userData?: ( user: string) => void;
+    isLogged: boolean;
+    username?: string;
+}
 
-// Tipagem das mensagens de login do cabeçalho
-interface MessageLoginTypes {
-    isLogged: boolean,
-    notLoggedText: string,
-    loggedText: string
+export function IsLogged():UseAuth {
+    const {user: userData} = useAuth().data;
+    if (userData) {
+        return { isLogged: true, username: userData.name }
+    }
+    else {
+        return { isLogged: false }
+    }
+
 }
 
 // Função que entrega a mensagem de login adequada
-export function MessageLoginMgr({ isLogged, loggedText, notLoggedText }: MessageLoginTypes) {
+export function MessageLoginMgr() {
+    const {isLogged, username} = IsLogged()
+    const notLoggedText = "É administrador? Faça login Aqui";
+    const loggedText = `Bem vindo! ${username}`
+
     if (isLogged) {
         loginText = loggedText
         return loginText
