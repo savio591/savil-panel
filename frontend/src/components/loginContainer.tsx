@@ -40,6 +40,13 @@ function LoginContainer() {
         username: data.username,
         password: data.password,
       });
+
+      addToast({
+        type: 'success',
+        title: 'Aêe',
+        description: 'Login feito com sucesso!',
+      })
+
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
@@ -47,8 +54,15 @@ function LoginContainer() {
         formRef.current?.setErrors(errors);
         addToast({
           type: 'error',
-          title: 'Erro na autenticação',
-          description: 'Ocorreu um erro ao fazer login, cheque as credenciais.',
+          title: 'Dados vazios!',
+          description: 'Insira as credenciais.',
+        });
+      }
+      else {
+        addToast({
+          type: 'error',
+          title: 'Algo errado não está certo',
+          description: 'Nome de usuário ou senha incorreto, ou o servidor não está funcionando!',
         });
       }
     }

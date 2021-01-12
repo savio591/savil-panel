@@ -1,7 +1,10 @@
 import { useAuth } from "./authContextService";
 
+interface UserData {
+    name: string;
+}
 interface UseAuth {
-    userData?: ( user: string) => void;
+    userData?: UserData;
     isLogged: boolean;
     username?: string;
 }

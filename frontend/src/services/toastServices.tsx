@@ -52,7 +52,7 @@ function useToast(): ToastContextData {
   const context = useContext(ToastContext);
 
   if (!context) {
-    throw new Error('useToast must be used within an ToastProvider');
+    throw new Error('useToast deve ser usado no ToastProvider');
   }
 
   return context;
