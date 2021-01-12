@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 import ToastContainer from '../components/ToastContainer';
 
+// Tipagem da mensagem de toast
 export interface ToastMessage {
   id: string;
   type?: 'info' | 'success' | 'error';
@@ -10,13 +11,16 @@ export interface ToastMessage {
   description?: string;
 }
 
+// Tipagem das funções de toast
 interface ToastContextData {
   addToast(messages: Omit<ToastMessage, 'id'>): void;
   removeToast(id: string): void;
 }
 
+// Cria a api de contexto dos Toasts
 const ToastContext = createContext<ToastContextData>({} as ToastContextData);
 
+// Provedor dos toasts
 const ToastProvider: React.FC = ({ children }) => {
   const [messages, setMessages] = useState<ToastMessage[]>([]);
 
@@ -48,6 +52,7 @@ const ToastProvider: React.FC = ({ children }) => {
   );
 };
 
+// Chama o toast de mensagens no frontend através dos dados do Provedor
 function useToast(): ToastContextData {
   const context = useContext(ToastContext);
 

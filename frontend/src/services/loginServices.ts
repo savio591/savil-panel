@@ -9,6 +9,7 @@ interface UseAuth {
     username?: string;
 }
 
+// Serviço que retorna um boolean sobre se o usuário estiver logado
 export function IsLogged():UseAuth {
     const {user: userData} = useAuth().data;
     if (userData) {
@@ -20,7 +21,7 @@ export function IsLogged():UseAuth {
 
 }
 
-// Função que entrega a mensagem de login adequada
+// Serviço que entrega a mensagem de login do cabeçalho da página
 export function MessageLoginMgr() {
     const {isLogged, username} = IsLogged()
     const notLoggedText = "É administrador? Faça login Aqui";
@@ -36,7 +37,7 @@ export function MessageLoginMgr() {
     }
 }
 
-// Função que retorna um boolean se é a página de login
+// Serviço que retorna um boolean se é a página de login
 export function IsLoginPage() {
     const url = document.URL
 

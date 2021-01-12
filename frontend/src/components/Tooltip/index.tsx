@@ -7,6 +7,7 @@ interface TooltipProps {
   className?: string;
 }
 
+// Sub-componente de erros na entrada de texto
 const Tooltip: React.FC<TooltipProps> = ({
   title,
   className = '',

@@ -11,11 +11,13 @@ import React, {
   
   import { Container, Error } from './styles';
   
+  // Tipagem dos props do conteúdo da entrada de texto
   interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
     icon?: React.ComponentType<IconBaseProps>;
   }
   
+  // Componente de entrada de texto
   const Input: React.FC<InputProps> = ({ name, ...rest }) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);

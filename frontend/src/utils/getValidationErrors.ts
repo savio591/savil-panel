@@ -4,6 +4,7 @@ interface Errors {
   [key: string]: string;
 }
 
+// Observador de erros que retorna dados para apis de contexto
 export default function getValidationErrors(err: ValidationError): Errors {
   const validationErrors: Errors = {};
 
