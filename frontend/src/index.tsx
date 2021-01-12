@@ -1,18 +1,31 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import App from './App'
-import LoginPage from './loginPage'
+// Páginas
+import HomePage from './pages/homePage'
+import LoginPage from './pages/loginPage'
+import DashboardPage from './pages/dashboardPage'
 
-import './styles/reset.css'
-const url = document.URL
+import './styles/reset.css' // Reset de estilos do navegador
 
-// Gambiarra de rotas estáticas para github pages
-if (url.endsWith("/login/")) {
-    render(
-        <LoginPage />, document.getElementById('login'))
-}
-else {
-    render(
-        <App />, document.getElementById('app'))
+const url = document.URL // Recebe a url atual do navegador
+
+// Switch de rotas estáticas para Github Pages.
+// Seria possível utilizar o switch e routes do próprio react, 
+// porém encontrei problemas com o meu servidor estático.
+
+// A solução foi o uso da condicional switch.
+switch (true) {
+    case url.endsWith("/login/"):
+        render(
+            <LoginPage />, document.getElementById('login'))
+        break;
+    case url.endsWith("/dashboard/"):
+        render(
+            <DashboardPage />, document.getElementById('dashboard'));
+        break;
+    default:
+        render(
+            <HomePage />, document.getElementById('app'))
+            break;
 }

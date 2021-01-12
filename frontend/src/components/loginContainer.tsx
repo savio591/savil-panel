@@ -1,16 +1,17 @@
 import React, { useRef, useCallback } from 'react';
 
-import { FormHandles } from '@unform/core';
-import { Form } from '@unform/web';
-import * as Yup from 'yup';
+import { FormHandles } from '@unform/core'; // Tipagem de dados de formulario do unform
+import { Form } from '@unform/web'; // Framework observador de dados de formulário
+import * as Yup from 'yup'; // Framework validador de dados de formulário
 
 import '../styles/login.css';
-import Input from './Input';
+import Input from './Input'; // Componente de entrada de dados
 
-import getValidationErrors from '../utils/getValidationErrors';
-import { useAuth } from '../services/authContextService';
-import { useToast } from '../services/toastServices';
+import getValidationErrors from '../utils/getValidationErrors'; // Validação e compilação de erros
+import { useAuth } from '../services/authContextService'; // Api de contexto de autenticação
+import { useToast } from '../services/toastServices'; // Mensagens de toast
 
+// Tipagem dos dados de login
 interface SignInFormData {
   username: string;
   password: string;

@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { IsLoginPage, MessageLoginMgr } from "../services/loginServices";
+import {
+    IsLoginPage, // Verificação da página de login
+    MessageLoginMgr // Serviço de mensagens de login
+} from "../services/loginServices"; 
 
 import '../styles/header.css';
 
@@ -15,8 +18,8 @@ interface HeaderProps {
 function Header(props: HeaderProps) {
     const titleName = props.titleName;
 
-    // JSON de parâmetros de login
-    const loginText = MessageLoginMgr()
+    const loginText = MessageLoginMgr() // JSON de parâmetros de login
+
 
     return (
         <>
