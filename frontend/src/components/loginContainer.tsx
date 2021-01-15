@@ -44,9 +44,11 @@ function LoginContainer() {
 
       addToast({
         type: 'success',
-        title: 'Aêe',
+        title: 'Sucesso',
         description: 'Login feito com sucesso!',
       })
+
+      window.location.replace("../dashboard")
 
     } catch (err) {
       if (err instanceof Yup.ValidationError) {

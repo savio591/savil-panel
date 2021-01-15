@@ -26,12 +26,13 @@ header {
     align-items: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 690px) {
     .header_navbar {
         display: none !important
-    }
-    .navbar {
-        display: flex;
     }
 }
 
@@ -43,22 +44,87 @@ header {
         padding: 18px;
     }
     .navbar {
-        display: none;
+        display: none !important;
     }
 }
 
-.admin_button a {
-    text-decoration: none;
-}
-
-.admin_button h3 {
-    color: #CCCCCC;
-    text-decoration: none;
-}
-
 .navbar {
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    background: #292929;
+    padding: 12px;
+    place-content: center;
+}
+
+.signin_button {
+    background: #C9C9C9;
+    border-radius: 40px;
     padding: 8px;
+    transition: background .5s;
+}
+
+.signin_button:hover {
+    background: #B9B9B9;
+    transition: background .2s;
+}
+
+.signin_button a {
+    text-decoration: none;
+}
+
+.signin_button h3 {
+    font-family: Buenard;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #312A39;
+}
+
+.navbar .admin_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.admin_nav_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    background: transparent;
+    border-radius: 40px;
+    padding: 8px;
+    transition: background .5s;
+}
+
+.button:hover {
+    background: #222222;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+
+.button a {
+    display: flex;
+}
+
+.button p {
+    color: #ebebeb;
+}
+
+.button svg {
+    padding: 0 4px;
+}
+
+*[hidden] {
+    display: none !important;
 }

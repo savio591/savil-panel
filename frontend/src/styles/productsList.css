@@ -23,8 +23,9 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    padding: 2vw;
+    padding: 12px;
     flex-wrap: wrap;
+    max-width: 90vw;
 }
 
 .category {
@@ -53,14 +54,17 @@
 }
 
 .productsList img {
-    height: 343px;
-    max-width: 343px;
+    width: 256px;
+    height: 256px;
+    max-width: 90vw;
+    max-height: 256px;
     object-fit: cover;
     border-radius: 16px 16px 0 0;
 }
 
 .details {
-    width: 343px;
+    width: 100%;
+    max-width: 90vw;
     height: 93px;
     background: #DFDFDF;
     display: flex;
@@ -82,5 +86,4 @@
     font-style: normal;
     font-weight: bold;
     font-size: 28px;
-
 }

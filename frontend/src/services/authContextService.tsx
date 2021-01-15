@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState, useContext } from 'react';
+import React, { createContext, useCallback, useState, useContext, MouseEventHandler } from 'react';
 
 import api from '../services/api';
 
@@ -19,7 +19,7 @@ interface DataObject {
 interface AuthContextData {
   data : DataObject;
   signIn(credentials: SignInCredentials): Promise<void>;
-  signOut: object;
+  signOut: MouseEventHandler;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -52,10 +52,12 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(() => {
+    window.location.replace("../")
     localStorage.removeItem('@SavilPanel:token');
     localStorage.removeItem('@SavilPanel:user');
 
     setData({} as DataObject);
+    
   }, [])
 
   return (

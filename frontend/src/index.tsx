@@ -11,10 +11,11 @@ import './styles/reset.css' // Reset de estilos do navegador
 const url = document.URL // Recebe a url atual do navegador
 
 // Switch de rotas estáticas para Github Pages.
-// Seria possível utilizar o switch e routes do próprio react, 
-// porém encontrei problemas com o meu servidor estático.
+// Seria possível utilizar o switch, location e history, routes do próprio react, 
+// porém encontrei problemas com o meu servidor estático, além do
+// react só poder renderizar um DOM dentro de apenas uma id
 
-// A solução foi o uso da condicional switch.
+// A solução foi o uso da condicional switch do javascript.
 switch (true) {
     case url.endsWith("/login/"):
         render(

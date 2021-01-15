@@ -1,11 +1,7 @@
 import React from 'react'
 
-import {
-    IsLoginPage, // Verificação da página de login
-    MessageLoginMgr // Serviço de mensagens de login
-} from "../services/loginServices"; 
-
 import '../styles/header.css';
+import Nav from './nav';
 
 
 // Tipagem dos props do cabeçalho
@@ -18,28 +14,13 @@ interface HeaderProps {
 function Header(props: HeaderProps) {
     const titleName = props.titleName;
 
-    const loginText = MessageLoginMgr() // JSON de parâmetros de login
-
-
     return (
         <>
             <header>
                 <h1 className="header_logo">{titleName}</h1>
-                <nav className="header_navbar">
-                    <div className="admin_button">
-                        <a hidden={IsLoginPage()} href="./login">
-                            <h3>{loginText}</h3>
-                        </a>
-                    </div>
-                </nav>
+                <Nav type="header_navbar" />
             </header>
-            <nav className="navbar">
-                <div className="admin_button">
-                    <a hidden={IsLoginPage()} href="./login">
-                        <h3>{loginText}</h3>
-                    </a>
-                </div>
-            </nav>
+            <Nav type="navbar"/>
         </>
     )
 };
